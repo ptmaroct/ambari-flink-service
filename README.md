@@ -1,4 +1,18 @@
 #### An Ambari Service for Flink
+This repo is forked from abajwa-hw/ambari-flink-service because the download url flink in config of that repo was broken.
+Basically,
+- To download the Flink service folder, run below the following in terminal when logged in to HDP 
+```
+VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
+sudo git clone https://github.com/ptmaroct/ambari-flink-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/FLINK   
+```
+
+- Restart Ambari
+```
+sudo service ambari-server restart
+```
+
+
 Ambari service for easily installing and managing Flink on HDP clusters.
 Apache Flink is an open source platform for distributed stream and batch data processing
 More details on Flink and how it is being used in the industry today available here: [http://flink-forward.org/?post_type=session](http://flink-forward.org/?post_type=session)
@@ -36,7 +50,7 @@ ssh root@sandbox.hortonworks.com
 - To download the Flink service folder, run below
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-sudo git clone https://github.com/abajwa-hw/ambari-flink-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/FLINK   
+sudo git clone https://github.com/ptmaroct/ambari-flink-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/FLINK   
 ```
 
 - Restart Ambari
